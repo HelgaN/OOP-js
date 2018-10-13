@@ -4,11 +4,6 @@ class Model extends EventEmitter {
   constructor(state = []) {
     super();
     this.state = state;
-    /*{
-      id: 123,
-      title: "",
-      completed: false
-    }*/
   }
 
   getItem(id) {
@@ -24,9 +19,7 @@ class Model extends EventEmitter {
 
   updateItem(id, data) {
     const item = this.getItem(id);
-
     Object.keys(data).forEach(prop => item[prop] = data[prop]);
-
     return item;
   }
 

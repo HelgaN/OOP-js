@@ -1,7 +1,10 @@
 function createElement(tag, props, ...children) {
     const element = document.createElement(tag);
 
-    Object.keys(props).forEach(key => element[key] = props[key]);
+    Object.keys(props).forEach(key => {
+      element[key] = props[key];
+      if(key.includes("data")) element.setAttribute(key, props[key]);
+    });
 
     children.forEach(child => {
         if (typeof child === 'string') {
